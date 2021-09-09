@@ -1,0 +1,2765 @@
+<!DOCTYPE html>
+<html lang="ms">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+      <title>Sistem Tempahan Makanan dan Minuman di Kantin Sekolah</title>
+      <style>
+         body,h1,h2,h3,h4,h5,h6 {font-family: 'Klee One', cursive;}
+         .tab {overflow: hidden;border: 1px solid #ccc;background-color: #F5F5DC;}
+         .tab button {background-color: #F5F5DC;float: left;border: none;outline: none;cursor: pointer;padding: 14px 16px;transition: 0.3s;font-size: 17px;}
+         .tab button:hover {background-color:#F0E68C;}
+         .tab button.active {background-color: #F5F5DC;}
+         .content {display: none;padding: 6px 12px;border: 1px solid #ccc;border-top: none;}
+         .header {background-color: #F5F5DC;padding: 20px;text-align: center;}
+      </style>
+   </head>
+   <body>
+      <div class="header">
+         <h1>Sistem Tempahan Makanan dan Minuman di Kantin Sekolah</h1>
+      </div>
+      <div class="tab">
+         <button class="links" onclick="openName(event, 'Laman Utama')" id="defaultOpen">&#127968;Laman Utama</button>
+         <button class="links" onclick="openName(event, 'Peraturan')">&#128208;Peraturan</button>
+         <button class="links" onclick="openName(event, 'Menu')">&#128214;Borang Tempahan</button>
+         <button class="links" onclick="openName(event, 'Borang Hubungan')">&#128231;Borang Hubungan</button>
+      </div>
+      <!-- laman Utama -->
+      <div id="Laman Utama" class="content">
+         <div class="w3-content" style="max-width:1200px">
+            <style>
+               .slide {display:none}
+               .w3-left, .w3-right, .w3-badge {cursor:pointer}
+               .w3-badge {height:15px;width:15px;padding:0}
+            </style>
+            <div class="w3-content w3-display-container">
+               <img class="slide" src="https://www.ybmalaya.com/wp-content/uploads/2019/07/kantin-sekolah-1024x521.jpg" width="1000" height="450">
+               <img class="slide" src="https://assets.hmetro.com.my/images/articles/18hmkant_1547769037.jpg" width="1000" height="450">
+               <img class="slide" src="https://3.bp.blogspot.com/-3p3eyLA3dxo/WIgOpo5M7fI/AAAAAAAAE24/s7f0eJfcM5IhM2cT98XkIgxy87W30XTfACLcB/s1600/kantin-sekolah.jpg" width="1000" height="450">
+               <div class="w3-center w3-container w3-section w3-xxlarge w3-text-white w3-display-bottommiddle" style="width:100%">
+                  <div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
+                  <div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
+                  <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
+                  <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
+                  <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
+               </div>
+            </div>
+            <script>
+               var slideIndex = 1;
+               showDivs(slideIndex);
+               function plusDivs(n) {showDivs(slideIndex += n);}
+               function currentDiv(n) {showDivs(slideIndex = n);}
+               function showDivs(n) {var i;
+               var x = document.getElementsByClassName("slide");
+               var dots = document.getElementsByClassName("demo");
+               if (n > x.length) {slideIndex = 1}
+               if (n < 1) {slideIndex = x.length}
+               for (i = 0; i < x.length; i++) {x[i].style.display = "none";}
+               for (i = 0; i < dots.length; i++) {dots[i].className = dots[i].className.replace(" w3-white", "");}
+               x[slideIndex-1].style.display = "block";dots[slideIndex-1].className += " w3-white";}
+            </script>
+            <br><br>
+            <div class="w3-panel w3-border w3-round-xxlarge w3-row w3-padding-24 w3-card-4 w3-margin">
+               <h2 style="text-align: center"><span class="w3-tag w3-wide">PENGENALAN</span></h2>
+               <h5>
+                  <p>Kantin sekolah tersebut terletak di No.247 Jalan Raja Permaisuri Bainun, 30250, Ipoh,Perak Darul Ridzuan Malaysia.</p>
+               </h5>
+               <h5>
+                  <p>Bagi terjamin keselamatan murid dan guru dalam tempoh Perintah Kawalan Pergerakan, pihak sekolah membangunkan sebuah sistem tempahan makanan dan minuman di kantin sekolah berasakan web.</p>
+               </h5>
+               <h5>
+                  <p>Kantin tersebut terbahagi kepada empat gerai bagi menjual makanan dan dua gerai bagi menjual minuman.</p>
+               </h5>
+               <h5>
+                  <p>Murid dapat menjalankan tempahan makanan dan minuman melalui sistem tersebut sebelum datang ke sekolah.</p>
+               </h5>
+               <h5>
+                  <p>Guru dan murid adalah dibenarkan untuk menjalankan tempah melalui sistem tersebut.</p>
+               </h5>
+            </div>
+            <br><br>
+            <div class="w3-center w3-panel w3-border w3-round-xxlarge w3-row w3-padding-24 w3-card-4 w3-margin">
+               <h3><span class="w3-tag w3-wide">KANTIN SEKOLAH YANG BERSIH DAN SIHAT</span></h3>
+               <div class="w3-panel w3-center w3-leftbar w3-sand">
+                  <p><i class="w3-serif w3-xlarge">
+                     <span style="font-size:150px;line-height:0.6em;opacity:0.2">&#128269;</span>
+                     Makanan dan minuman yang dijual adalah<br>
+                     tersenarai di dalam kategori yang dibenarkan.</i>
+                  </p>
+               </div>
+               <div class="w3-panel w3-center w3-leftbar w3-sand">
+                  <p><i class="w3-serif w3-xlarge">
+                     <span style="font-size:150px;line-height:0.6em;opacity:0.2">&#127836;</span>
+                     Makanan dan minuman yang dijual adalah<br>
+                     mengikut saiz hidangan yang telah ditetapkan.</i>
+                  </p>
+               </div>
+               <div class="w3-panel w3-center w3-leftbar w3-sand">
+                  <p><i class="w3-serif w3-xlarge">
+                     <span style="font-size:150px;line-height:0.6em;opacity:0.2">&#127861;</span>
+                     Gunakan cara memasak yang lebih sihat.<br>
+                     </i>
+                  </p>
+               </div>
+               <div class="w3-panel w3-center w3-leftbar w3-sand">
+                  <p><i class="w3-serif w3-xlarge">
+                     <span style="font-size:150px;line-height:0.6em;opacity:0.2">&#128117;</span>
+                     Pengendali makanan dan minuman di kantin sekolah memenuhi keperluan<br>
+                     kesihatan dan kebersihan yang telah ditetapkan oleh Kementerian Kesihatan.</i>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Peraturan -->
+      <div id="Peraturan" class="content">
+         <span onclick="this.parentElement.style.display='none'"></span>
+         <br>
+         <h1>Peraturan</h1>
+         <br>
+         <p>Peraturan di bawah perlu dibaca sebelum anda membuat tempahan dan perlu dipatuhi semasa anda mejalankan tempahan di sistem tempahan makanan dan minuman di kantin sekolah.</p>
+         <p style="color:red"><b>Perhatian:</b> <i>Pengunaan laman ini untuk membuat tempahan menandakan penerimaan peraturan di bawah.</i></p>
+         <hr>
+         <h5>
+            <ol>
+               <li>Anda boleh membuat tempahan makanan dan minuman dalam platform yang disediakan.</li>
+               <br>
+               <li>Anda perlu mengisi borang tempahan yang disediakan untuk menjalankan tempahan.</li>
+               <br>
+               <li>Pengurus sistem akan memberikan pengesahan tempahan anda melalui emel.</li>
+               <br>
+               <li>Sila mematuhi masa pengambilan makanan dan minuman yang telah dipilih semasa anda membuat tempahan.</li>
+               <br>
+               <li>Sila memeriksa tempahan yang anda lakukan supaya tidak berlaku kesalahan.</li>
+               <br>
+               <li>Sekiranya menjalankan tempahan yang salah,pihak kantin tidak akan melakukan bayaran balik.</li>
+               <br>
+               <li>Pelajar yang telah menempah makanan dan minuman di atas sistem tempahan hendaklah mengambil makanan di gerai tertentu pada waktu rehat.</li>
+               <br>
+               <li>Pelajar mestilah mengambil makanan dan minuman mengikuti SOP.</li>
+               <br>
+               <li>Sekiranya pelajar tidak mengambil makanan dan minuman dalam masa tertentu atau tidak mengikuti SOP, pihak sekolah akan mengambil tindakan terhadap pelajar tertentu.</li>
+               <br>
+               <li>Pelajar mestilah mengutamakan kebersihan dan keselamatan apabila ambil makanan dan minuman.</li>
+               <br>
+               <li>Pelajar hendaklah segera memberitahu pengawas atau guru bertugas jika berlaku sebarang kemalangan atau pergaduhan.</li>
+               <br>
+               <li>Sila membuat bayaran mengikut harga yang telah mengira apabila membuat tempahan selepas anda menerima pengesahan tempahan.</li>
+               <br>
+               <li>Segala pembayaran akan dilakukan secara dalam talian.</li>
+               <br>
+               <li>Sekiranya ada masalah, menghubungi kami dengan mengisi borang hubungan.</li>
+               <br>
+            </ol>
+         </h5>
+      </div>
+      <!-- Menu -->
+      <div id="Menu" class="content">
+         <span onclick="this.parentElement.style.display='none'"></span>
+         <style>
+            .tabb {float: left;border: 1px solid #ccc;background-color: #f1f1f1;width: 30%;height:7900px;}
+            .tabb button {display: block;background-color: inherit;color: black;padding: 22px 16px;width: 100%;border: none;outline: none;text-align: left;cursor: pointer;transition: 0.3s;font-size: 17px;}
+            .tabb button:hover {background-color: #ddd;}
+            .tabb button.active {background-color: #ccc;}
+            .contentb {float: left;padding: 0px 12px;border: 1px solid #ccc;width: 70%;border-left: none;height: 7900px;}
+         </style>
+            <div class="tabb">
+               <button class="link" onclick="openMenu(event, 'Cari')" id="default">Cari</button>
+               <button class="link" onclick="openMenu(event, 'Borang Tempahan')">Borang Tempahan</button>
+               <button class="link" onclick="openMenu(event, 'Makanan')">Makanan</button>
+               <button class="link" onclick="openMenu(event, 'MAG1')">>>> Gerai 1 Mee</button>
+               <button class="link" onclick="openMenu(event, 'MAG2')">>>> Gerai 2 Nasi Sayur Campur</button>
+               <button class="link" onclick="openMenu(event, 'MAG3')">>>> Gerai 3 Sarapan</button>
+               <button class="link" onclick="openMenu(event, 'MAG4')">>>> Gerai 4 Halal</button>
+               <button class="link" onclick="openMenu(event, 'Minuman')">Minuman</button>
+               <button class="link" onclick="openMenu(event, 'MIG1')">>>> Gerai 1</button>
+               <button class="link" onclick="openMenu(event, 'MIG2')">>>> Gerai 2</button>
+            </div>
+            <div id="Cari" class="contentb">
+               <style>
+                  * {box-sizing: border-box;}
+                  #input {background-image: url('/css/searchicon.png');background-position: 10px 10px;background-repeat: no-repeat;width: 100%;font-size: 16px;padding: 12px 20px 12px 40px;border: 1px solid #ddd;margin-bottom: 12px;}
+                  #menu {border-collapse: collapse;width: 100%;border: 1px solid #ddd;font-size: 18px;}
+                  #menu th, #menu td {text-align: left;padding: 12px;}
+                  #menu tr {border-bottom: 1px solid #ddd;}
+                  #menu tr.header, #menu tr:hover {background-color: #f1f1f1;}
+               </style>
+               <br>
+               <h2>Cari</h2>
+               <input type="text" id="input" onkeyup="cari()" placeholder="Cari nama makanan / minuman.." title="Type in a name">
+               <table id="menu">
+                  <tr class="header">
+                     <th style="width:40%;">Nama</th>
+                     <th style="width:30%;">No</th>
+                     <th style="width:30%;">Harga</th>
+                  </tr>
+                  <tr>
+                     <td>Mee Goreng</td>
+                     <td>MAG101</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Pan Mee</td>
+                     <td>MAG102</td>
+                     <td>RM 2.00</td>
+                  </tr>
+                  <tr>
+                     <td>Spaghetti Bolognese</td>
+                     <td>MAG103</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Mee Kari Laksa</td>
+                     <td>MAG104</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Kan Loh Mee</td>
+                     <td>MAG105</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Mee Rebus</td>
+                     <td>MAG106</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Mee ZhaJiang</td>
+                     <td>MAG107</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Sup Ayam</td>
+                     <td>MAG108</td>
+                     <td>RM 0.50</td>
+                  </tr>
+                  <tr>
+                     <td>Kek ikan</td>
+                     <td>MAG109</td>
+                     <td>RM 0.80</td>
+                  </tr>
+                  <tr>
+                     <td>Kuluyuk</td>
+                     <td>MAG201</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Ayam Goreng</td>
+                     <td>MAG202</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Gulai Siam Ikan</td>
+                     <td>MAG203</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Bamia Ikan</td>
+                     <td>MAG204</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Udang Masak Berempah</td>
+                     <td>MAG205</td>
+                     <td>RM 1.30</td>
+                  </tr>
+                  <tr>
+                     <td>Dalca Tulang</td>
+                     <td>MAG206</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Kari Ayam</td>
+                     <td>MAG207</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Yong Tau Hu</td>
+                     <td>MAG208</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Sayur Kailan Ikan Masin</td>
+                     <td>MAG209</td>
+                     <td>RM 0.80</td>
+                  </tr>
+                  <tr>
+                     <td>Bayam Goreng Sos Tiram</td>
+                     <td>MAG210</td>
+                     <td>RM 1.30</td>
+                  </tr>
+                  <tr>
+                     <td>Kobis Goreng Ala Mamak</td>
+                     <td>MAG211</td>
+                     <td>RM 1.30</td>
+                  </tr>
+                  <tr>
+                     <td>Pak Choy Tumis Sos Tiram</td>
+                     <td>MAG212</td>
+                     <td>RM 0.90</td>
+                  </tr>
+                  <tr>
+                     <td>Telur Bungkus</td>
+                     <td>MAG213</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Telur Goreng Tomato</td>
+                     <td>MAG214</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Telur Mata Kerbau</td>
+                     <td>MAG215</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Nasi</td>
+                     <td>MAG216</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Nasi Goreng</td>
+                     <td>MAG217</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Nasi Perang Jagung Mentega</td>
+                     <td>MAG218</td>
+                     <td>RM 1.30</td>
+                  </tr>
+                  <tr>
+                     <td>Sup Ayam Pekat</td>
+                     <td>MAG219</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Sup Sayur Asin</td>
+                     <td>MAG220</td>
+                     <td>RM 2.00</td>
+                  </tr>
+                  <tr>
+                     <td>Sup Sayur Diet</td>
+                     <td>MAG221</td>
+                     <td>RM 2.00</td>
+                  </tr>
+                  <tr>
+                     <td>Sandwic Ayam dan Salad</td>
+                     <td>MAG301</td>
+                     <td>RM 1.70</td>
+                  </tr>
+                  <tr>
+                     <td>Bubur Nasi Ayam</td>
+                     <td>MAG302</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Spaggeti Goreng</td>
+                     <td>MAG303</td>
+                     <td>RM 1.70</td>
+                  </tr>
+                  <tr>
+                     <td>Roti Bakar Telur Goyang</td>
+                     <td>MAG304</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Baked Breakfast Omelette</td>
+                     <td>MAG305</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Nasi Goreng Pedas Sosej</td>
+                     <td>MAG306</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Roti Rulung Berinti Tuna</td>
+                     <td>MAG307</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Capati dan Sambal Ikan</td>
+                     <td>MAG308</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Egg Prata Roll</td>
+                     <td>MAG309</td>
+                     <td>RM 2.20</td>
+                  </tr>
+                  <tr>
+                     <td>Jiaozi</td>
+                     <td>MAG401</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Nasi Lemak</td>
+                     <td>MAG402</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>Karipap</td>
+                     <td>MAG403</td>
+                     <td>RM 0.50</td>
+                  </tr>
+                  <tr>
+                     <td>Rojak</td>
+                     <td>MAG404</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Roti Canai</td>
+                     <td>MAG405</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Apam Balik</td>
+                     <td>MAG406</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Pisang Goreng</td>
+                     <td>MAG407</td>
+                     <td>RM 0.50</td>
+                  </tr>
+                  <tr>
+                     <td>Cendol</td>
+                     <td>MAG408</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Sate</td>
+                     <td>MAG409</td>
+                     <td>RM 0.50</td>
+                  </tr>
+                  <tr>
+                     <td>Jus Epal Lobak Merah</td>
+                     <td>MIG101</td>
+                     <td>RM 2.00</td>
+                  </tr>
+                  <tr>
+                     <td>Jus Tembikai</td>
+                     <td>MIG102</td>
+                     <td>RM 1.80</td>
+                  </tr>
+                  <tr>
+                     <td>Jus Buah Naga</td>
+                     <td>MIG103</td>
+                     <td>RM 2.50</td>
+                  </tr>
+                  <tr>
+                     <td>Jus Limau</td>
+                     <td>MIG104</td>
+                     <td>RM 1.60</td>
+                  </tr>
+                  <tr>
+                     <td>Jus Pisang</td>
+                     <td>MIG105</td>
+                     <td>RM 1.80</td>
+                  </tr>
+                  <tr>
+                     <td>Jus Lemon</td>
+                     <td>MIG106</td>
+                     <td>RM 2.20</td>
+                  </tr>
+                  <tr>
+                     <td>100 Plus</td>
+                     <td>MIG107</td>
+                     <td>RM 1.50</td>
+                  </tr>
+                  <tr>
+                     <td>100 Plus (Sejuk)</td>
+                     <td>MIG107 (S)</td>
+                     <td>RM 1.70</td>
+                  </tr>
+                  <tr>
+                     <td>Coca-Cola</td>
+                     <td>MIG108</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Coca-Cola (Sejuk)</td>
+                     <td>MIG108 (S)</td>
+                     <td>RM 1.40</td>
+                  </tr>
+                  <tr>
+                     <td>Botol Air Mineral</td>
+                     <td>MIG109</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Botol Air Mineral (Sejuk)</td>
+                     <td>MIG109 (S)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Milo (Panas)</td>
+                     <td>M!G201 (P)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Milo (Sejuk)</td>
+                     <td>M!G201 (S)</td>
+                     <td>RM 1.40</td>
+                  </tr>
+                  <tr>
+                     <td>Kopi (Panas)</td>
+                     <td>M!G202 (P)</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Kopi (Sejuk)</td>
+                     <td>M!G202 (S)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Kopi 'O' (Panas)</td>
+                     <td>M!G203 (P)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Kopi 'O' (Sejuk)</td>
+                     <td>M!G203 (S)</td>
+                     <td>RM 1.40</td>
+                  </tr>
+                  <tr>
+                     <td>Kopi Cham (Panas)</td>
+                     <td>M!G204 (P)</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Kopi Cham (Sejuk)</td>
+                     <td>M!G204 (S)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Kapucino (Panas)</td>
+                     <td>M!G205 (P)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Kapucino (Sejuk)</td>
+                     <td>M!G205 (S)</td>
+                     <td>RM 1.40</td>
+                  </tr>
+                  <tr>
+                     <td>Latte (Panas)</td>
+                     <td>M!G206 (P)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Latte (Sejuk)</td>
+                     <td>M!G206 (S)</td>
+                     <td>RM 1.40</td>
+                  </tr>
+                  <tr>
+                     <td>Teh (Panas)</td>
+                     <td>M!G207 (P)</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Teh (Sejuk)</td>
+                     <td>M!G207 (S)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+                  <tr>
+                     <td>Teh Tarik (Panas)</td>
+                     <td>M!G208 (P)</td>
+                     <td>RM 1.40</td>
+                  </tr>
+                  <tr>
+                     <td>Teh Tarik (Sejuk)</td>
+                     <td>M!G208 (S)</td>
+                     <td>RM 1.60</td>
+                  </tr>
+                  <tr>
+                     <td>Air Mineral (Panas)</td>
+                     <td>M!G209 (P)</td>
+                     <td>RM 1.00</td>
+                  </tr>
+                  <tr>
+                     <td>Air Mineral (Sejuk)</td>
+                     <td>M!G209 (S)</td>
+                     <td>RM 1.20</td>
+                  </tr>
+               </table>
+               <script>
+                  function cari() {var input, filter, table, tr, td, i, txtValue;
+                  input = document.getElementById("input");
+                  filter = input.value.toUpperCase();
+                  table = document.getElementById("menu");
+                  tr = table.getElementsByTagName("tr");
+                  for (i = 0; i < tr.length; i++) {
+                  td = tr[i].getElementsByTagName("td")[0];
+                  if (td) {txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";} else {
+                  tr[i].style.display = "none";}}}}
+               </script>
+            </div>
+            <div id="Borang Tempahan" class="contentb">
+               <style>
+                  body {margin: 5;}
+                  .row {display: flexbox; display: flex;flex-wrap: wrap; flex-wrap: wrap;margin: 0 -16px;}
+                  .col-25 {flex: 25%;flex: 25%;}
+                  .col-50 {flex: 50%;flex: 50%;}
+                  .col-75 {flex: 75%;flex: 75%;}
+                  .col-25,
+                  .col-50,
+                  .col-75 {padding: 0 16px;}
+                  .containera {background-color: #f2f2f2;padding: 5px 20px 15px 20px;border: 1px solid lightgrey;border-radius: 3px;}
+                  input[type=text] {width: 100%;margin-bottom: 20px;padding: 12px;border: 1px solid #ccc;border-radius: 3px;}
+                  label {margin-bottom: 10px;display: block;}
+                  .icon-container {margin-bottom: 20px;padding: 7px 0;font-size: 24px;}
+                  .signupbtn {background-color:#04AA6D;color:white;padding:14px 20px;margin:8px 0;border:none;cursor: pointer;width: 100%;opacity: 0.9;}
+                  .cancelbtn {background-color: #f44336;color:white;padding:14px 20px;margin:8px 0;border:none;cursor: pointer;width: 100%;opacity: 0.9;}
+                  .cancelbtn, .signupbtn {float: left;width: 50%;}
+                  .clearfix::after {content: "";clear: both;display: table;}
+                  {.cancelbtn, .signupbtn {width: 100%;}
+                  hr {border: 1px solid lightgrey;}
+                  span.price {float: right;color: grey;}
+                  (max-width: 800px)
+               </style>
+               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+               <br>
+               <h1>Borang Tempahan</h1>
+               <p>Sila lengkapkan borang tempahan ini untuk menyelesaikan pesanan anda dan menerima invois anda yang perlu dibayar semasa anda menerima makanan atau minuman anda.</p>
+               <hr>
+               <div class="row">
+                  <div class="col">
+                     <form action="mailto:joeyyongxin@gmail.com" method="post" enctype="text/plain" onsubmit="confirmInput()">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                        <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <div class="row">
+               <div class="col-75">
+               <div class="containera">
+               <div class="row">
+               <div class="col-50">
+               <br>
+               <h3>Maklumat Anda</h3>
+               <label for="fname"> Nama penuh</label>
+               <input type="text" id="fname" name="Nama" placeholder="Azend" required>
+               <label for="email">Emel</label>
+               <input type="text" id="email" name="Emel" placeholder="azend@example.com" required>
+               <label for="class">Kelas</label>
+               <input type="text" id="class" name="Kelas" placeholder="1S" required>
+               <label for="zip">Zip</label>
+               <input type="text" id="zip" name="Zip" placeholder="10001" required>
+               <div class="row">
+               <div class="col-50">
+               <label for="cvv">CVV</label>
+               <input type="text" id="cvv" name="CVV" placeholder="352" required>
+               </div>
+               </div>
+               </div>
+               <div class="col-50">
+               <br>
+               <h3>Pembayaran</h3>
+               <label for="fname">Kad yang Diterima</label>
+               <div class="icon-container">
+               <i class="fa fa-cc-visa" style="color:navy;"></i>
+               <i class="fa fa-cc-amex" style="color:blue;"></i>
+               <i class="fa fa-cc-mastercard" style="color:red;"></i>
+               <i class="fa fa-cc-discover" style="color:orange;"></i>
+               </div>
+               <label for="cname">Nama Pada Kad</label>
+               <input type="text" id="cname" name="Nama Pada Kad" placeholder="Azend" required>
+               <label for="ccnum">Nombor Kredit Kad</label>
+               <input type="text" id="ccnum" name="Nombor Kredit Kad" placeholder="1111-2222-3333-4444" required>
+               <label for="expmonth">Bulan Tamat</label>
+               <input type="text" id="expmonth" name="Bulan Tamat" placeholder="Januari" required>
+               <label for="expyear">Tahun Tamat</label>
+               <input type="text" id="expyear" name="Tahun Tamat" placeholder="2022" required>
+               </div>
+               </div>
+               </div>
+               <div class="row">
+               <div class="col-75">
+               <div class="containera">
+               <div class="row">
+               <div class="col-50">
+               <br>
+               <h3>Lain</h3>
+               <label for="message">Mesej / Keperluan Khas (pilihan)</label>
+               <input type="text" id="message" name="Mesej / Keperluan Khas" placeholder="Nyatakan mesej / keperluan khas anda">
+               <label><input type="checkbox" "style="margin-bottom:15px" required> Dengan menempah,saya sudah membaca dan bersetuju dengan <a ="Peraturan" style="color:dodgerblue">Peraturan</a>.</label>
+               </div>
+               </div>
+               </div>
+               </div>
+               </div>
+               <br><br>
+               <div class="clearfix">
+               <button type="reset"class="cancelbtn">Membatalkan</button>
+               <div class="clearfix">
+               <button type="submit" class="signupbtn">Menempah</button>
+               </form>
+               <script>
+                  function confirmInput() {fname = document.forms[0].fname.value;alert(fname + ", anda telah berjaya menempah");}
+               </script>
+               </div>
+               <br>
+               </div>
+               </div>
+               </div>
+            </div>
+            <div id="Makanan" class="contentb">
+               <br>
+               <h1>Makanan</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <h2>Makanan - Gerai 1 Mee</h2>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.joyousapron.com/wp-content/uploads/2021/03/Mee-Goreng-Sq-2.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee Goreng  </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG101</p>
+                              <a href="#" data-name="MAG101" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://whattocooktoday.com/wp-content/uploads/2021/06/KL-Chili-Pan-Mee-15.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Pan Mee</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MAG102</p>
+                              <a href="#" data-name="MAG102" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.errenskitchen.com/wp-content/uploads/2015/02/Quick-Easy-Spaghetti-Bolognese2-1-500x480.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Spaghetti Bolognese </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG103</p>
+                              <a href="#" data-name="MAG103" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://ucarecdn.com/83ebe78f-baa4-4f1f-be22-b2790dc75ae8/-/scale_crop/1280x1280/center/-/quality/normal/-/format/jpeg/curry-laksa.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee Kari Laksa </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG104</p>
+                              <a href="#" data-name="MAG104 " data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://akitchencat.files.wordpress.com/2012/10/wan-tan-mee.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kan Loh Mee  </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG105</p>
+                              <a href="#" data-name="MAG105" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://asianinspirations.com.au/wp-content/uploads/2019/01/R00899_Mee_Rebus.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee Rebus  </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG106</p>
+                              <a href="#" data-name="MAG106 " data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://iamafoodblog.b-cdn.net/wp-content/uploads/2019/05/easy-jia-jiang-mian-3768.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee ZhaJiang  </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG107</p>
+                              <a href="#" data-name="MAG107  " data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://img-global.cpcdn.com/recipes/bd0dfd87f4e9f301/1200x630cq70/photo.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Ayam   </h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG108</p>
+                              <a href="#" data-name="MAG108" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.bismaraya.com/wp-content/uploads/2018/02/bismaraya-ikan-mas-kota-kinabalu-fish-cake-product-5.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kek ikan</h4>
+                              <p class="card-text">Harga: RM0.80</p>
+                              <p class="card-text">No: MAG109</p>
+                              <a href="#" data-name="MAG109" data-price="0.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <h2>Gerai 2 - Nasi Sayur Campur</h2>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://statics.indozone.news/content/2019/07/08/mnsWoQ/t_5d22ed7104bce_700.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kuluyuk</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG201</p>
+                              <a href="#" data-name="MAG201" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://iluminasi.com/img/upload/ayam-goreng-996.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Ayam Goreng</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG202</p>
+                              <a href="#" data-name="MAG202" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://i.pinimg.com/originals/c0/4f/b2/c04fb24e91a931282389a14bb96bb8df.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Gulai Siam Ikan</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG203</p>
+                              <a href="#" data-name="MAG203" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://norazmiskitchen.com/wp-content/uploads/video_20201004_123554_Moment2-1024x576.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Bamia Ikan</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG204</p>
+                              <a href="#" data-name="MAG204" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.resepimudah.com/wp-content/uploads/2016/01/Udang-Goreng-Berempah.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Udang Masak Berempah </h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG205</p>
+                              <a href="#" data-name="MAG205" data-price="1.30" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://farm5.staticflickr.com/4903/46135415322_44552b4db4.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Dalca Tulang </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG206</p>
+                              <a href="#" data-name="MAG206" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepibonda.my/wp-content/uploads/2020/06/Resepi-Kari-Ayam-ala-Sugu-Pavrita-3.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kari Ayam </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG207</p>
+                              <a href="#" data-name="MAG207" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.foodadvisor.my/attachments/d026e886576c4b31d66d310136b4c31b8e510279/store/fill/800/500/5da75c9529c528dcf6c7ab02f73e81e4e7da37c5d1d587d303ed7e0afba3/featured_image.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Yong Tau Hu</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG208</p>
+                              <a href="#" data-name="MAG208" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://4.bp.blogspot.com/-AC6Vq8vaFrs/V2eEQk7UnCI/AAAAAAAACB0/CY-1QyZOw-I0TKxiRHRA15SInAQuMccwQCLcB/s1600/RESEPI%2BKAILAN%2BIKAN%2BMASIN.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sayur Kailan Ikan Masin</h4>
+                              <p class="card-text">Harga: RM0.80</p>
+                              <p class="card-text">No: MAG209</p>
+                              <a href="#" data-name="MAG209" data-price="0.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.resepimudah.com/wp-content/uploads/2016/01/Udang-Goreng-Berempah.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Bayam Goreng Sos Tiram</h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG210</p>
+                              <a href="#" data-name="MAG210 " data-price="0.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepichenom.com/media/131C3A98-6F6D-4009-B058-AF74E01B97E5.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kobis Goreng Ala Mamak</h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG211</p>
+                              <a href="#" data-name="MAG211" data-price="1.30" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepichenom.com/media/b2d06c87448ef7999e4876c8e63f19a5ccb6fa13.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h5 class="card-title">Pak Choy Tumis Sos Tiram</h5>
+                              <p class="card-text">Harga: RM0.90</p>
+                              <p class="card-text">No: MAG212</p>
+                              <a href="#" data-name="MAG212" data-price="0.90" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://d1uz88p17r663j.cloudfront.net/original/d31d9b6a607949788f44c32d0155a88c_7.-Telur_Bungkus_621x498.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Telur Bungkus </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG213</p>
+                              <a href="#" data-name="MAG213" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://s3-ap-southeast-1.amazonaws.com/my-resipi2-production/images/recipe/9791/big/open-uri20151104-27083-1xpb3z6.?1446607024" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Telur Goreng Tomato </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG214</p>
+                              <a href="#" data-name="MAG214" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://3.bp.blogspot.com/-s3AqoY8mjb4/XEMumGPmCfI/AAAAAAAABVM/2bv8_Chank8YBvb3eK6YPUo8pPj7vbIfgCLcBGAs/s1600/olive-oil-fried-egg.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Telur Mata Kerbau</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG215</p>
+                              <a href="#" data-name="MAG215" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://thediffrestaurant.com/webstore/wp-content/uploads/nasi-putih-1.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG216</p>
+                              <a href="#" data-name="MAG216" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.seriouseats.com/thmb/1-lucdS7A6rTh5TUsCFNtV0Eh_I=/2100x1181/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__06__20190604-nasi-goreng-fried-rice-vicky-wasik-7-617f5404fb49463a8b37e02df7d78def.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Goreng</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG217</p>
+                              <a href="#" data-name="MAG217" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://cdn.rasa.my/2019/02/Untitled-design-4-8.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Perang Jagung Mentega</h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG218</p>
+                              <a href="#" data-name="MAG218" data-price="1.30" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepichenom.com/media/Sup_Ayam_Pekat.JPG" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Ayam Pekat</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG219</p>
+                              <a href="#" data-name="MAG219" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://cdn.rasa.my/2018/04/8.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Sayur Asin</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MAG220</p>
+                              <a href="#" data-name="MAG220" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://images.says.com/uploads/story_source/source_image/682545/3cc4.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Sayur Diet</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MAG221</p>
+                              <a href="#" data-name="MAG221" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <h2>Makanan - Gerai 3 Sarapan</h2>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://media.xtra.com.my/2020/10/grilld-chicken-caeser-salad.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sandwic Ayam dan Salad  </h4>
+                              <p class="card-text">Harga: RM1.70</p>
+                              <p class="card-text">No: MAG301</p>
+                              <a href="#" data-name="MAG301" data-price="1.70" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.azhan.co/wp-content/uploads/2016/10/Malaysian-Porridge.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Bubur Nasi Ayam</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG302</p>
+                              <a href="#" data-name="MAG302" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://i2.wp.com/www.springtomorrow.com/wp-content/uploads/2016/12/imgp4033.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Spaggeti Goreng </h4>
+                              <p class="card-text">Harga: RM1.70</p>
+                              <p class="card-text">No: MAG303</p>
+                              <a href="#" data-name="MAG303" data-price="1.70" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://lh6.googleusercontent.com/proxy/c6lUB695m8efFpueNhZAQSCslV-sytVDFIXksNBTFQf8yZe4rz17F7paeRc0tT41usP-yno9fnZrPLPDetm-LPlhU_M1U9NyfsXD4G4Xh-_6X07s8U13RYQAhb2iN2Gi2GpPuIU=s0-d" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Roti Bakar Telur Goyang</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG304</p>
+                              <a href="#" data-name="MAG304" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/exps9221_THCB1415561D12_12_1bC_WEB.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h5 class="card-title">Baked Breakfast Omelette </h5>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG305</p>
+                              <a href="#" data-name="MAG305" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://img-global.cpcdn.com/recipes/a61d241c5ce532b5/680x482cq70/nasi-goreng-sosej-resipi-foto-utama.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Goreng Pedas Sosej</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG306</p>
+                              <a href="#" data-name="MAG306" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://storage.googleapis.com/cdn.foodaciously.com/static/recipes/bd23760f-4fc7-44d3-a733-a898525c44bc/paprika-hummus-chicken-wrap-with-mushrooms-recipe-e71c0b45383e674b0d0d0a169e3837b0-1920.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Roti Rulung Berinti Tuna </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG307</p>
+                              <a href="#" data-name="MAG307" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://2.bp.blogspot.com/-s9fdWAndEIc/Wfvq2xGvCfI/AAAAAAAAsU8/RVCCcU8StjUUGoV4s8CCpWmVcqdJxIpbQCLcBGAs/w1200-h630-p-k-no-nu/Resipi%2BCapati%2B.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Capati dan Sambal Ikan </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG308</p>
+                              <a href="#" data-name="MAG308" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://photos.bigoven.com/recipe/hero/egg-paratha-1b75f5.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Egg Prata Roll </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG309</p>
+                              <a href="#" data-name="MAG309" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <h2>Makanan - Gerai 4 Halal</h2>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://img.taste.com.au/wXrmepgn/taste/2016/11/chicken-and-lemongrass-dumplings-80881-1.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jiaozi</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG401</p>
+                              <a href="#" data-name="MAG401" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/6/62/Nasi_Lemak%2C_Mamak%2C_Sydney.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Lemak</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG402</p>
+                              <a href="#" data-name="MAG402" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://2.bp.blogspot.com/-Ar4YpbYOIGE/Wcedd_K3pRI/AAAAAAAAGvE/kiPqrV-_MqENQsvb9DpOdOPVlu66YN7CACLcBGAs/s1600/karipap%2Brangup.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Karipap</h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG403</p>
+                              <a href="#" data-name="MAG403" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://cdn1.my.orstatic.com/userphoto/article/0/D/0002LXD189DAC871EB6373j.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Rojak</h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG404</p>
+                              <a href="#" data-name="MAG404" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.kuali.com/wp-content/uploads/2015/05/Roti-canai.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Roti Canai</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG405</p>
+                              <a href="#" data-name="MAG405" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://t3.ftcdn.net/jpg/03/48/62/54/360_F_348625475_x9zbTEYA8oysQ8yZK40X5tIPsuA4XYBK.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Apam Balik</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG406</p>
+                              <a href="#" data-name="MAG406" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://i.ytimg.com/vi/kl7PB12N6o8/maxresdefault.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Pisang Goreng</h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG407</p>
+                              <a href="#" data-name="MAG407" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.saveur.com/uploads/2019/04/01/7SD4OZMRAULKZD6Q7HO6XSBJVY.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Cendol</h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG408</p>
+                              <a href="#" data-name="MAG408" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://clips.mstar.com.my/images/blob/17ABC1DD-C531-420B-8278-DBC06AD587F2" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sate</h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG409</p>
+                              <a href="#" data-name="MAG409" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="MAG1" class="contentb">
+               <br>
+               <h1>Makanan - Gerai 1 Mee</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.joyousapron.com/wp-content/uploads/2021/03/Mee-Goreng-Sq-2.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee Goreng  </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG101</p>
+                              <a href="#" data-name="MAG101" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://whattocooktoday.com/wp-content/uploads/2021/06/KL-Chili-Pan-Mee-15.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Pan Mee</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MAG102</p>
+                              <a href="#" data-name="MAG102" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.errenskitchen.com/wp-content/uploads/2015/02/Quick-Easy-Spaghetti-Bolognese2-1-500x480.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Spaghetti Bolognese </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG103</p>
+                              <a href="#" data-name="MAG103" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://ucarecdn.com/83ebe78f-baa4-4f1f-be22-b2790dc75ae8/-/scale_crop/1280x1280/center/-/quality/normal/-/format/jpeg/curry-laksa.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee Kari Laksa </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG104</p>
+                              <a href="#" data-name="MAG104 " data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://akitchencat.files.wordpress.com/2012/10/wan-tan-mee.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kan Loh Mee  </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG105</p>
+                              <a href="#" data-name="MAG105" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://asianinspirations.com.au/wp-content/uploads/2019/01/R00899_Mee_Rebus.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee Rebus  </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG106</p>
+                              <a href="#" data-name="MAG106 " data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://iamafoodblog.b-cdn.net/wp-content/uploads/2019/05/easy-jia-jiang-mian-3768.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Mee ZhaJiang  </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG107</p>
+                              <a href="#" data-name="MAG107  " data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://img-global.cpcdn.com/recipes/bd0dfd87f4e9f301/1200x630cq70/photo.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Ayam   </h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG108</p>
+                              <a href="#" data-name="MAG108" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.bismaraya.com/wp-content/uploads/2018/02/bismaraya-ikan-mas-kota-kinabalu-fish-cake-product-5.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kek ikan</h4>
+                              <p class="card-text">Harga: RM0.80</p>
+                              <p class="card-text">No: MAG109</p>
+                              <a href="#" data-name="MAG109" data-price="0.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="MAG2" class="contentb">
+               <br>
+               <h1>Makanan - Gerai 2 Nasi Sayur Campur</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://statics.indozone.news/content/2019/07/08/mnsWoQ/t_5d22ed7104bce_700.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kuluyuk</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG201</p>
+                              <a href="#" data-name="MAG201" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://iluminasi.com/img/upload/ayam-goreng-996.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Ayam Goreng</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG202</p>
+                              <a href="#" data-name="MAG202" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://i.pinimg.com/originals/c0/4f/b2/c04fb24e91a931282389a14bb96bb8df.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Gulai Siam Ikan</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG203</p>
+                              <a href="#" data-name="MAG203" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://norazmiskitchen.com/wp-content/uploads/video_20201004_123554_Moment2-1024x576.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Bamia Ikan</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG204</p>
+                              <a href="#" data-name="MAG204" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.resepimudah.com/wp-content/uploads/2016/01/Udang-Goreng-Berempah.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Udang Masak Berempah </h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG205</p>
+                              <a href="#" data-name="MAG205" data-price="1.30" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://farm5.staticflickr.com/4903/46135415322_44552b4db4.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Dalca Tulang </h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG206</p>
+                              <a href="#" data-name="MAG206" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepibonda.my/wp-content/uploads/2020/06/Resepi-Kari-Ayam-ala-Sugu-Pavrita-3.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kari Ayam </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG207</p>
+                              <a href="#" data-name="MAG207" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.foodadvisor.my/attachments/d026e886576c4b31d66d310136b4c31b8e510279/store/fill/800/500/5da75c9529c528dcf6c7ab02f73e81e4e7da37c5d1d587d303ed7e0afba3/featured_image.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Yong Tau Hu</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG208</p>
+                              <a href="#" data-name="MAG208" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://4.bp.blogspot.com/-AC6Vq8vaFrs/V2eEQk7UnCI/AAAAAAAACB0/CY-1QyZOw-I0TKxiRHRA15SInAQuMccwQCLcB/s1600/RESEPI%2BKAILAN%2BIKAN%2BMASIN.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sayur Kailan Ikan Masin</h4>
+                              <p class="card-text">Harga: RM0.80</p>
+                              <p class="card-text">No: MAG209</p>
+                              <a href="#" data-name="MAG209" data-price="0.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.resepimudah.com/wp-content/uploads/2016/01/Udang-Goreng-Berempah.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Bayam Goreng Sos Tiram</h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG210</p>
+                              <a href="#" data-name="MAG210 " data-price="0.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepichenom.com/media/131C3A98-6F6D-4009-B058-AF74E01B97E5.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kobis Goreng Ala Mamak</h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG211</p>
+                              <a href="#" data-name="MAG211" data-price="1.30" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepichenom.com/media/b2d06c87448ef7999e4876c8e63f19a5ccb6fa13.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h5 class="card-title">Pak Choy Tumis Sos Tiram</h5>
+                              <p class="card-text">Harga: RM0.90</p>
+                              <p class="card-text">No: MAG212</p>
+                              <a href="#" data-name="MAG212" data-price="0.90" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://d1uz88p17r663j.cloudfront.net/original/d31d9b6a607949788f44c32d0155a88c_7.-Telur_Bungkus_621x498.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Telur Bungkus </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG213</p>
+                              <a href="#" data-name="MAG213" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://s3-ap-southeast-1.amazonaws.com/my-resipi2-production/images/recipe/9791/big/open-uri20151104-27083-1xpb3z6.?1446607024" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Telur Goreng Tomato </h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG214</p>
+                              <a href="#" data-name="MAG214" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://3.bp.blogspot.com/-s3AqoY8mjb4/XEMumGPmCfI/AAAAAAAABVM/2bv8_Chank8YBvb3eK6YPUo8pPj7vbIfgCLcBGAs/s1600/olive-oil-fried-egg.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Telur Mata Kerbau</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG215</p>
+                              <a href="#" data-name="MAG215" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://thediffrestaurant.com/webstore/wp-content/uploads/nasi-putih-1.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG216</p>
+                              <a href="#" data-name="MAG216" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.seriouseats.com/thmb/1-lucdS7A6rTh5TUsCFNtV0Eh_I=/2100x1181/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__06__20190604-nasi-goreng-fried-rice-vicky-wasik-7-617f5404fb49463a8b37e02df7d78def.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Goreng</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG217</p>
+                              <a href="#" data-name="MAG217" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://cdn.rasa.my/2019/02/Untitled-design-4-8.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Perang Jagung Mentega</h4>
+                              <p class="card-text">Harga: RM1.30</p>
+                              <p class="card-text">No: MAG218</p>
+                              <a href="#" data-name="MAG218" data-price="1.30" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://resepichenom.com/media/Sup_Ayam_Pekat.JPG" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Ayam Pekat</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG219</p>
+                              <a href="#" data-name="MAG219" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://cdn.rasa.my/2018/04/8.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Sayur Asin</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MAG220</p>
+                              <a href="#" data-name="MAG220" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://images.says.com/uploads/story_source/source_image/682545/3cc4.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sup Sayur Diet</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MAG221</p>
+                              <a href="#" data-name="MAG221" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="MAG3" class="contentb">
+               <br>
+               <h1>Makanan - Gerai 3 Sarapan</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://media.xtra.com.my/2020/10/grilld-chicken-caeser-salad.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sandwic Ayam dan Salad  </h4>
+                              <p class="card-text">Harga: RM1.70</p>
+                              <p class="card-text">No: MAG301</p>
+                              <a href="#" data-name="MAG301" data-price="1.70" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.azhan.co/wp-content/uploads/2016/10/Malaysian-Porridge.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Bubur Nasi Ayam</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG302</p>
+                              <a href="#" data-name="MAG302" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://i2.wp.com/www.springtomorrow.com/wp-content/uploads/2016/12/imgp4033.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Spaggeti Goreng </h4>
+                              <p class="card-text">Harga: RM1.70</p>
+                              <p class="card-text">No: MAG303</p>
+                              <a href="#" data-name="MAG303" data-price="1.70" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://lh6.googleusercontent.com/proxy/c6lUB695m8efFpueNhZAQSCslV-sytVDFIXksNBTFQf8yZe4rz17F7paeRc0tT41usP-yno9fnZrPLPDetm-LPlhU_M1U9NyfsXD4G4Xh-_6X07s8U13RYQAhb2iN2Gi2GpPuIU=s0-d" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Roti Bakar Telur Goyang</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG304</p>
+                              <a href="#" data-name="MAG304" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/exps9221_THCB1415561D12_12_1bC_WEB.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h5 class="card-title">Baked Breakfast Omelette </h5>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG305</p>
+                              <a href="#" data-name="MAG305" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://img-global.cpcdn.com/recipes/a61d241c5ce532b5/680x482cq70/nasi-goreng-sosej-resipi-foto-utama.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Goreng Pedas Sosej</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG306</p>
+                              <a href="#" data-name="MAG306" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://storage.googleapis.com/cdn.foodaciously.com/static/recipes/bd23760f-4fc7-44d3-a733-a898525c44bc/paprika-hummus-chicken-wrap-with-mushrooms-recipe-e71c0b45383e674b0d0d0a169e3837b0-1920.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Roti Rulung Berinti Tuna </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG307</p>
+                              <a href="#" data-name="MAG307" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://2.bp.blogspot.com/-s9fdWAndEIc/Wfvq2xGvCfI/AAAAAAAAsU8/RVCCcU8StjUUGoV4s8CCpWmVcqdJxIpbQCLcBGAs/w1200-h630-p-k-no-nu/Resipi%2BCapati%2B.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Capati dan Sambal Ikan  </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG308</p>
+                              <a href="#" data-name="MAG308" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://photos.bigoven.com/recipe/hero/egg-paratha-1b75f5.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Egg Prata Roll </h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG309</p>
+                              <a href="#" data-name="MAG309" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="MAG4" class="contentb">
+               <br>
+               <style>
+                  body {margin: 5;}
+                  .show-cart li {display: flex;}
+                  .card {margin-bottom: 20px;}
+                  .card-img-top {width: 200px;height: 200px;align-self: center;}
+               </style>
+               <h1>Makanan - Gerai 4 Halal</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://img.taste.com.au/wXrmepgn/taste/2016/11/chicken-and-lemongrass-dumplings-80881-1.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jiaozi</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG401</p>
+                              <a href="#" data-name="MAG401" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/6/62/Nasi_Lemak%2C_Mamak%2C_Sydney.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Nasi Lemak</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">No: MAG402</p>
+                              <a href="#" data-name="MAG402" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://2.bp.blogspot.com/-Ar4YpbYOIGE/Wcedd_K3pRI/AAAAAAAAGvE/kiPqrV-_MqENQsvb9DpOdOPVlu66YN7CACLcBGAs/s1600/karipap%2Brangup.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Karipap</h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG403</p>
+                              <a href="#" data-name="MAG403" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://cdn1.my.orstatic.com/userphoto/article/0/D/0002LXD189DAC871EB6373j.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Rojak</h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG404</p>
+                              <a href="#" data-name="MAG404" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.kuali.com/wp-content/uploads/2015/05/Roti-canai.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Roti Canai</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG405</p>
+                              <a href="#" data-name="MAG405" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://t3.ftcdn.net/jpg/03/48/62/54/360_F_348625475_x9zbTEYA8oysQ8yZK40X5tIPsuA4XYBK.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Apam Balik</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">No: MAG406</p>
+                              <a href="#" data-name="MAG406" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://i.ytimg.com/vi/kl7PB12N6o8/maxresdefault.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Pisang Goreng</h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG407</p>
+                              <a href="#" data-name="MAG407" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.saveur.com/uploads/2019/04/01/7SD4OZMRAULKZD6Q7HO6XSBJVY.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Cendol</h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">No: MAG408</p>
+                              <a href="#" data-name="MAG408" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://clips.mstar.com.my/images/blob/17ABC1DD-C531-420B-8278-DBC06AD587F2" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Sate</h4>
+                              <p class="card-text">Harga: RM0.50</p>
+                              <p class="card-text">No: MAG409</p>
+                              <a href="#" data-name="MAG409" data-price="0.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="Minuman" class="contentb">
+               <br>
+               <h1>Minuman</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <h2>Minuman - Gerai 1</h2>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://farm-fr.desigusxpro.com/wp-content/uploads/2019/10/kak-prigotovit-vkusnyy-i-poleznyy-morkovno-yablochnyy-sok-8.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Epal Lobak Merah</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MIG101</p>
+                              <a href="#" data-name="MIG101" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://jarsofclay.asia/wp-content/uploads/2013/05/gregg-mcbride-watermelon-smoothie.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Tembikai</h4>
+                              <p class="card-text">Harga: RM1.80</p>
+                              <p class="card-text">No: MIG102</p>
+                              <a href="#" data-name="MIG102" data-price="1.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://s2.bukalapak.com/img/7966034483/large/Go_Resto_20180908_063729_scaled.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Buah Naga</h4>
+                              <p class="card-text">Harga: RM2.50</p>
+                              <p class="card-text">No: MIG103</p>
+                              <a href="#" data-name="MIG103" data-price="2.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.xtra.com.my/wp-content/uploads/2020/03/lime-juice.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Limau</h4>
+                              <p class="card-text">Harga: RM1.60</p>
+                              <p class="card-text">No: MIG104</p>
+                              <a href="#" data-name="MIG104" data-price="1.60" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://asset-a.grid.id/crop/0x0:0x0/360x240/photo/2020/08/02/910980679.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Pisang</h4>
+                              <p class="card-text">Harga: RM1.80</p>
+                              <p class="card-text">No: MIG105</p>
+                              <a href="#" data-name="MIG105" data-price="1.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://imgcdn.rri.co.id/__srct/b763d32e20ec5d473fd182b5c78d0964/843423/jus_lemon_foto_livestrong.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Lemon</h4>
+                              <p class="card-text">Harga: RM2.20</p>
+                              <p class="card-text">No: MIG106</p>
+                              <a href="#" data-name="MIG106" data-price="2.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.aplusgrocer.com.my/3223-large_default/100-plus-ori-a-325ml-can.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">100 Plus</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">Harga: RM1.70 (Sejuk)</p>
+                              <p class="card-text">No: MIG107 / MIG107(S)</p>
+                              <a href="#" data-name="MIG107" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a><br><br>
+                              <a href="#" data-name="MIG107(S)" data-price="1.70" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://m.media-amazon.com/images/I/51jKm1MY43L._SX679_.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Coca-Cola</h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">Harga: RM1.40 (Sejuk)</p>
+                              <p class="card-text">No: MIG108 / MIG108(S)</p>
+                              <a href="#" data-name="MIG108" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a><br><br>
+                              <a href="#" data-name="MIG108(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://pohonmas.my/wp-content/uploads/2020/05/air-mineral-minuman.png">
+                           <div class="card-block">
+                              <h4 class="card-title">Botol Air Mineral</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">Harga: RM1.20 (Sejuk)</p>
+                              <p class="card-text">No: MIG109 / MIG109(S)</p>
+                              <a href="#" data-name="MIG109" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a><br><br>
+                              <a href="#" data-name="MIG109(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br> 
+               <h2>Minuman - Gerai 2</h2>
+               <br><br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://thumbs.dreamstime.com/b/milo-cool-drink-ice-white-background-64858852.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Milo</h4>
+                              <p class="card-text">Harga: RM1.20(Panas)</p>
+                              <p class="card-text">Harga: RM1.40(Sejuk)</p>
+                              <p class="card-text">No: MIG201(P) / MIG201(S)</p>
+                              <a href="#" data-name="MIG201(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG201(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://hafizamri.com/wp-content/uploads/2014/01/Khasiat-Kopi.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kopi</h4>
+                              <p class="card-text">Harga: RM1.00(Panas)</p>
+                              <p class="card-text">Harga: RM1.20(Sejuk)</p>
+                              <p class="card-text">No: MIG202(P) / MIG202(S)</p>
+                              <a href="#" data-name="MIG202(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG202(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.ecomall.my/image/cache/data/product-34509/Kopi%20o%20Hot-800x800.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kopi 'O'</h4>
+                              <p class="card-text">Harga: RM1.20(Panas)</p>
+                              <p class="card-text">Harga: RM1.40(Sejuk)</p>
+                              <p class="card-text">No: MIG203(P) / MIG203(S)</p>
+                              <a href="#" data-name="MIG203(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG203(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.ecomall.my/image/cache/data/product-40866/image-800x800.png" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kopi Cham</h4>
+                              <p class="card-text">Harga: RM1.00(Panas)</p>
+                              <p class="card-text">Harga: RM1.20(Sejuk)</p>
+                              <p class="card-text">No: MIG204(P) / MIG204(S)</p>
+                              <a href="#" data-name="MIG204(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG204(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://newzodiac.al/club/new/wp-content/uploads/2020/10/kapucino.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kapucino</h4>
+                              <p class="card-text">Harga: RM1.20(Panas)</p>
+                              <p class="card-text">Harga: RM1.40(Sejuk)</p>
+                              <p class="card-text">No: MIG205(P) / MIG205(S)</p>
+                              <a href="#" data-name="MIG205(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG205(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://s3.envato.com/files/287464703/170625SL-15093.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Latte</h4>
+                              <p class="card-text">Harga: RM1.20(Panas)</p>
+                              <p class="card-text">Harga: RM1.40(Sejuk)</p>
+                              <p class="card-text">No: MIG206(P) / MIG206(S)</p>
+                              <a href="#" data-name="MIG206(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG206(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://ohhangat.com.my/img/OH/sedapnyerrr/teh_20170605_202906.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Teh</h4>
+                              <p class="card-text">Harga: RM1.00(Panas)</p>
+                              <p class="card-text">Harga: RM1.20(Sejuk)</p>
+                              <p class="card-text">No: MIG207(P) / MIG207(S)</p>
+                              <a href="#" data-name="MIG207(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG207(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.kuali.com/wp-content/uploads/2016/06/Teh-Tarik-stock-photo.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Teh Tarik</h4>
+                              <p class="card-text">Harga: RM1.40(Panas)</p>
+                              <p class="card-text">Harga: RM1.60(Sejuk)</p>
+                              <p class="card-text">No: MIG208(P) / MIG208(S)</p>
+                              <a href="#" data-name="MIG208(P)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG208(S)" data-price="1.60" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.beritatkp.com/wp-content/uploads/2019/09/air-minelar.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Air Mineral</h4>
+                              <p class="card-text">Harga: RM1.00(Panas)</p>
+                              <p class="card-text">Harga: RM1.20(Sejuk)</p>
+                              <p class="card-text">No: MIG209(P) / MIG209(S)</p>
+                              <a href="#" data-name="MIG209(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG209(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="MIG1" class="contentb">
+               <br>
+               <h1>Minuman - Gerai 1</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://farm-fr.desigusxpro.com/wp-content/uploads/2019/10/kak-prigotovit-vkusnyy-i-poleznyy-morkovno-yablochnyy-sok-8.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Epal Lobak Merah</h4>
+                              <p class="card-text">Harga: RM2.00</p>
+                              <p class="card-text">No: MIG101</p>
+                              <a href="#" data-name="MIG101" data-price="2.00" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://jarsofclay.asia/wp-content/uploads/2013/05/gregg-mcbride-watermelon-smoothie.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Tembikai</h4>
+                              <p class="card-text">Harga: RM1.80</p>
+                              <p class="card-text">No: MIG102</p>
+                              <a href="#" data-name="MIG102" data-price="1.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://s2.bukalapak.com/img/7966034483/large/Go_Resto_20180908_063729_scaled.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Buah Naga</h4>
+                              <p class="card-text">Harga: RM2.50</p>
+                              <p class="card-text">No: MIG103</p>
+                              <a href="#" data-name="MIG103" data-price="2.50" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.xtra.com.my/wp-content/uploads/2020/03/lime-juice.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Limau</h4>
+                              <p class="card-text">Harga: RM1.60</p>
+                              <p class="card-text">No: MIG104</p>
+                              <a href="#" data-name="MIG104" data-price="1.60" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://asset-a.grid.id/crop/0x0:0x0/360x240/photo/2020/08/02/910980679.jpeg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Pisang</h4>
+                              <p class="card-text">Harga: RM1.80</p>
+                              <p class="card-text">No: MIG105</p>
+                              <a href="#" data-name="MIG105" data-price="1.80" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://imgcdn.rri.co.id/__srct/b763d32e20ec5d473fd182b5c78d0964/843423/jus_lemon_foto_livestrong.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Jus Lemon</h4>
+                              <p class="card-text">Harga: RM2.20</p>
+                              <p class="card-text">No: MIG106</p>
+                              <a href="#" data-name="MIG106" data-price="2.20" class="add-to-cart btn btn-primary">Tambah ke troli</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.aplusgrocer.com.my/3223-large_default/100-plus-ori-a-325ml-can.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">100 Plus</h4>
+                              <p class="card-text">Harga: RM1.50</p>
+                              <p class="card-text">Harga: RM1.70 (Sejuk)</p>
+                              <p class="card-text">No: MIG107 / MIG107(S)</p>
+                              <a href="#" data-name="MIG107" data-price="1.50" class="add-to-cart btn btn-primary">Tambah ke troli</a><br><br>
+                              <a href="#" data-name="MIG107(S)" data-price="1.70" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://m.media-amazon.com/images/I/51jKm1MY43L._SX679_.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Coca-Cola</h4>
+                              <p class="card-text">Harga: RM1.20</p>
+                              <p class="card-text">Harga: RM1.40 (Sejuk)</p>
+                              <p class="card-text">No: MIG108 / MIG108(S)</p>
+                              <a href="#" data-name="MIG108" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli</a><br><br>
+                              <a href="#" data-name="MIG108(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://pohonmas.my/wp-content/uploads/2020/05/air-mineral-minuman.png">
+                           <div class="card-block">
+                              <h4 class="card-title">Botol Air Mineral</h4>
+                              <p class="card-text">Harga: RM1.00</p>
+                              <p class="card-text">Harga: RM1.20 (Sejuk)</p>
+                              <p class="card-text">No: MIG109 / MIG109(S)</p>
+                              <a href="#" data-name="MIG109" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli</a><br><br>
+                              <a href="#" data-name="MIG108(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="MIG2" class="contentb">
+               <br>
+               <h1>Minuman - Gerai 2</h1>
+               <br><br>
+               <div class="row">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Troli (<span class="total-count"></span>)</button>
+                     <button class="clear-cart btn btn-danger">Kosongkan Troli</button>
+                  </div>
+               </div>
+               <br>
+               <hr>
+               <br>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://thumbs.dreamstime.com/b/milo-cool-drink-ice-white-background-64858852.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Milo</h4>
+                              <p class="card-text">Harga: RM1.20 (Panas)</p>
+                              <p class="card-text">Harga: RM1.40 (Sejuk)</p>
+                              <p class="card-text">No: MIG201(P) / MIG201(S)</p>
+                              <a href="#" data-name="MIG201(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG201(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://hafizamri.com/wp-content/uploads/2014/01/Khasiat-Kopi.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kopi</h4>
+                              <p class="card-text">Harga: RM1.00 (Panas)</p>
+                              <p class="card-text">Harga: RM1.20 (Sejuk)</p>
+                              <p class="card-text">No: MIG202(P) / MIG202(S)</p>
+                              <a href="#" data-name="MIG202(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG202(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.ecomall.my/image/cache/data/product-34509/Kopi%20o%20Hot-800x800.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kopi 'O'</h4>
+                              <p class="card-text">Harga: RM1.20 (Panas)</p>
+                              <p class="card-text">Harga: RM1.40 (Sejuk)</p>
+                              <p class="card-text">No: MIG203(P) / MIG203(S)</p>
+                              <a href="#" data-name="MIG203(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG203(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.ecomall.my/image/cache/data/product-40866/image-800x800.png" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kopi Cham</h4>
+                              <p class="card-text">Harga: RM1.00 (Panas)</p>
+                              <p class="card-text">Harga: RM1.20 (Sejuk)</p>
+                              <p class="card-text">No: MIG204(P) / MIG204(S)</p>
+                              <a href="#" data-name="MIG204(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG204(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://newzodiac.al/club/new/wp-content/uploads/2020/10/kapucino.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Kapucino</h4>
+                              <p class="card-text">Harga: RM1.20 (Panas)</p>
+                              <p class="card-text">Harga: RM1.40 (Sejuk)</p>
+                              <p class="card-text">No: MIG205(P) / MIG205(S)</p>
+                              <a href="#" data-name="MIG205(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG205(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://s3.envato.com/files/287464703/170625SL-15093.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Latte</h4>
+                              <p class="card-text">Harga: RM1.20 (Panas)</p>
+                              <p class="card-text">Harga: RM1.40 (Sejuk)</p>
+                              <p class="card-text">No: MIG206(P) / MIG206(S)</p>
+                              <a href="#" data-name="MIG206(P)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG206(S)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="http://ohhangat.com.my/img/OH/sedapnyerrr/teh_20170605_202906.jpg" alt="Card image cap">
+                           <div class="card-block">
+                              <h4 class="card-title">Teh</h4>
+                              <p class="card-text">Harga: RM1.00 (Panas)</p>
+                              <p class="card-text">Harga: RM1.20 (Sejuk)</p>
+                              <p class="card-text">No: MIG207(P) / MIG207(S)</p>
+                              <a href="#" data-name="MIG207(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG207(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.kuali.com/wp-content/uploads/2016/06/Teh-Tarik-stock-photo.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Teh Tarik</h4>
+                              <p class="card-text">Harga: RM1.40 (Panas)</p>
+                              <p class="card-text">Harga: RM1.60 (Sejuk)</p>
+                              <p class="card-text">No: MIG208(P) / MIG208(S)</p>
+                              <a href="#" data-name="MIG208(P)" data-price="1.40" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG208(S)" data-price="1.60" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card" style="width: 20rem;">
+                           <img class="card-img-top" src="https://www.beritatkp.com/wp-content/uploads/2019/09/air-minelar.jpg">
+                           <div class="card-block">
+                              <h4 class="card-title">Air Mineral</h4>
+                              <p class="card-text">Harga: RM1.00 (Panas)</p>
+                              <p class="card-text">Harga: RM1.20 (Sejuk)</p>
+                              <p class="card-text">No: MIG209(P) / MIG209(S)</p>
+                              <a href="#" data-name="MIG209(P)" data-price="1.00" class="add-to-cart btn btn-primary">Tambah ke troli (P)</a><br><br>
+                              <a href="#" data-name="MIG209(S)" data-price="1.20" class="add-to-cart btn btn-primary">Tambah ke troli (S)</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Troli</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        <table class="show-cart table">         </table>
+                        <div>Jumlah harga: RM<span class="total-cart"></span></div>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <script>
+               var shoppingCart = (function() {
+               cart = [];
+               function Item(name, price, count) {
+               this.name = name;
+               this.price = price;
+               this.count = count;}
+                 function saveCart() {
+                   sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+                 }
+                 function loadCart() {
+                   cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+                 }
+                 if (sessionStorage.getItem("shoppingCart") != null) {
+                   loadCart();
+                 }
+                 var obj = {};
+                 obj.addItemToCart = function(name, price, count) {
+                   for(var item in cart) {
+                     if(cart[item].name === name) {
+                       cart[item].count ++;
+                       saveCart();
+                       return;
+                     }
+                   }
+                   var item = new Item(name, price, count);
+                   cart.push(item);
+                   saveCart();
+                 }
+                 obj.setCountForItem = function(name, count) {
+                   for(var i in cart) {
+                     if (cart[i].name === name) {
+                       cart[i].count = count;
+                       break;
+                     }
+                   }
+                 };
+                 obj.removeItemFromCart = function(name) {
+                     for(var item in cart) {
+                       if(cart[item].name === name) {
+                         cart[item].count --;
+                         if(cart[item].count === 0) {
+                           cart.splice(item, 1);
+                         }
+                         break;
+                       }
+                   }
+                   saveCart();
+                 }
+                 obj.removeItemFromCartAll = function(name) {
+                   for(var item in cart) {
+                     if(cart[item].name === name) {
+                       cart.splice(item, 1);
+                       break;
+                     }
+                   }
+                   saveCart();
+                 }
+               
+                 obj.clearCart = function() {
+                   cart = [];
+                   saveCart();
+                 }
+               
+                 obj.totalCount = function() {
+                   var totalCount = 0;
+                   for(var item in cart) {
+                     totalCount += cart[item].count;
+                   }
+                   return totalCount;
+                 }
+               
+                 obj.totalCart = function() {
+                   var totalCart = 0;
+                   for(var item in cart) {
+                     totalCart += cart[item].price * cart[item].count;
+                   }
+                   return Number(totalCart.toFixed(2));
+                 }
+               
+                 obj.listCart = function() {
+                   var cartCopy = [];
+                   for(i in cart) {
+                     item = cart[i];
+                     itemCopy = {};
+                     for(p in item) {
+                       itemCopy[p] = item[p];
+               
+                     }
+                     itemCopy.total = Number(item.price * item.count).toFixed(2);
+                     cartCopy.push(itemCopy)
+                   }
+                   return cartCopy;
+                 }
+               
+               
+                 return obj;
+               })();
+               $('.add-to-cart').click(function(event) {
+                 event.preventDefault();
+                 var name = $(this).data('name');
+                 var price = Number($(this).data('price'));
+                 shoppingCart.addItemToCart(name, price, 1);
+                 displayCart();
+               });
+               $('.clear-cart').click(function() {
+                 shoppingCart.clearCart();
+                 displayCart();
+               });
+               function displayCart() {
+                 var cartArray = shoppingCart.listCart();
+                 var output = "";
+                 for(var i in cartArray) {
+                   output += "<tr>"
+                     + "<td>" + cartArray[i].name + "</td>" 
+                     + "<td>(" + cartArray[i].price + ")</td>"
+                     + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+                     + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+                     + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+                     + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+                     + " = " 
+                     + "<td>" + cartArray[i].total + "</td>" 
+                     +  "</tr>";
+                 }
+                 $('.show-cart').html(output);
+                 $('.total-cart').html(shoppingCart.totalCart());
+                 $('.total-count').html(shoppingCart.totalCount());
+               }
+               $('.show-cart').on("click", ".delete-item", function(event) {
+                 var name = $(this).data('name')
+                 shoppingCart.removeItemFromCartAll(name);
+                 displayCart();
+               })
+               
+               $('.show-cart').on("click", ".minus-item", function(event) {
+                 var name = $(this).data('name')
+                 shoppingCart.removeItemFromCart(name);
+                 displayCart();
+               })
+               $('.show-cart').on("click", ".plus-item", function(event) {
+                 var name = $(this).data('name')
+                 shoppingCart.addItemToCart(name);
+                 displayCart();
+               })
+               $('.show-cart').on("change", ".item-count", function(event) {
+                  var name = $(this).data('name');
+                  var count = Number($(this).val());
+                 shoppingCart.setCountForItem(name, count);
+                 displayCart();
+               });
+               displayCart();
+            </script>
+            <script>
+               function openMenu(evt, Menu) {
+                 var i, contentb, link;
+                 contentb = document.getElementsByClassName("contentb");
+                 for (i = 0; i < contentb.length; i++) {
+                   contentb[i].style.display = "none";
+                 }
+                 link = document.getElementsByClassName("link");
+                 for (i = 0; i < link.length; i++) {
+                   link[i].className = link[i].className.replace(" active", "");
+                 }
+                 document.getElementById(Menu).style.display = "block";
+                 evt.currentTarget.className += " active";
+               }
+               document.getElementById("default").click();
+            </script>
+      </div>
+      </div>
+      </div>
+      <!-- Borang Hubungan -->
+      <div id="Borang Hubungan" class="content">
+      <span onclick="this.parentElement.style.display='none'"></span>
+      <style>
+      input[type=text],input[type=email],textarea  {width: 100%;padding: 12px;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;margin-top: 6px;margin-bottom: 16px;resize: vertical;}
+      .hantar{background-color: #04AA6D;color: white;padding: 12px 20px;border: none;border-radius: 4px;cursor: pointer;}
+      .hantar:hover {background-color: #45a049;}
+      .containerb {border-radius: 5px;background-color: #f2f2f2;padding: 20px;}
+      </style>
+      <br>
+      <h1>Borang Hubungan</h1><br>
+      <p>Anda boleh menghubungi kami untuk membatalkan tempahan, mengemukakan pertanyaan, masalah atau cadangan.</p>
+      <p>Sila hantar mesej anda mengunakan borang hubungan di bawah. Kami akan menjawab mesej anda dalam tempoh 12 jam.</p>
+      <p>Sila semak emel anda dalam tempoh masa tersebut.</p>
+      <hr><br>
+      <div class="containerb">
+      <form action="mailto:joeyyongxin@gmail.com" method="post" enctype="text/plain">
+      <label for="name">Nama</label>
+      <input type="text" id="fname" name="Nama" placeholder="Nama anda.." required>
+      <label for="email">Emel</label>
+      <input type="email" id="email" placeholder="Emel anda.."name="Emel" required>
+      <label for="class">Kelas</label>
+      <input type="text" id="kelas" placeholder="Kelas anda.."name="Kelas" required>
+      <label for="subject">Subjek</label>
+      <textarea id="subject" name="Subjek" placeholder="Nyatakan masalah anda..." style="height:200px" required></textarea>
+      <button onclick="myFunction()" class="hantar">Hantar</button>
+      </form>
+      <script>function myFunction() {alert("Terima kasih atas mesej anda!")}</script>
+      </div>
+      <br>
+      <script>
+         function openName(evt, Name)
+         {var i, content, links;content = document.getElementsByClassName("content");
+         for (i = 0; i < content.length; i++) {content[i].style.display = "none";}
+         links = document.getElementsByClassName("links");
+         for (i = 0; i < links.length; i++) {
+         links[i].className = links[i].className.replace(" active", "");}
+         document.getElementById(Name).style.display = "block";
+         evt.currentTarget.className += " active";}
+         document.getElementById("defaultOpen").click();
+      </script>
+   </body>
+</html>

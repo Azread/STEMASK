@@ -1,58 +1,32 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-<title>Bayar secara kad</title>
+<title>Bayar secara tunai</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-*{box-sizing: border-box;}
-body {margin: 5;}
-.row {display: flexbox; display: flex;flex-wrap: wrap; flex-wrap: wrap;margin: 0 -16px;}
-.col-25 {flex: 25%;flex: 25%;}
-.col-50 {flex: 50%;flex: 50%;}
-.col-75 {flex: 75%;flex: 75%;}
-.col-25,
-.col-50,
-.col-75 {padding: 0 16px;}
-.container {background-color: #f2f2f2;padding: 5px 20px 15px 20px;border: 1px solid lightgrey;border-radius: 3px;}
-input[type=text], input[type=month]{width: 100%;margin-bottom: 20px;padding: 12px;border: 1px solid #ccc;border-radius: 3px;}
-label {margin-bottom: 10px;display: block;}
-.icon-container {margin-bottom: 20px;padding: 7px 0;font-size: 24px;}
-.btn {background-color: #04AA6D;color: white;padding: 12px;margin: 10px 0;border: none; width: 100%;border-radius: 3px;cursor: pointer;font-size: 17px;}
-.btn:hover {background-color: #45a049;}
+input[type=text],input[type=date] {width: 100%;padding: 12px;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;margin-top: 6px;margin-bottom: 16px;resize: vertical;}
+.hantar{background-color: #04AA6D;color: white;padding: 12px 20px;border: none;border-radius: 4px;cursor: pointer;}
+.hantar:hover {background-color: #45a049;}
+.container {border-radius: 5px;background-color: #f2f2f2;padding: 20px;}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
 <body>
-<h2>Bayar secara kad</h2>
-<p>Sila lengkapkan borang ini untuk menyelesaikan tempahan anda dan menerima invois anda semasa anda menerima makanan atau minuman anda di kantin sekolah.</p>
-<form action="mailto:joeyyongxin@gmail.com" method="post" enctype="text/plain" onsubmit="confirmInput()">
+<h2>Bayar secara tunai</h2>
+<p>Sila bayar wang tunai semasa anda menerima makanan atau minuman di kantin sekolah. Isikan borang sebagai rekod kantin sekolah.</p>
 <div class="container">
-<div class="col-50">
-<h3>Pembayaran</h3>
-<label for="card">Kad yang Diterima</label>
-<div class="icon-container">
-<i class="fa fa-cc-visa" style="color:navy;"></i>
-<i class="fa fa-cc-amex" style="color:blue;"></i>
-<i class="fa fa-cc-mastercard" style="color:red;"></i>
-<i class="fa fa-cc-discover" style="color:orange;"></i>
-</div>
-<label for="cname">Nama Pada Kad</label>
-<input type="text" id="cname" name="Nama Pada Kad" placeholder="Azend" required>
-<label for="ccnum">Nombor Kredit Kad</label>
-<input type="text" id="ccnum" name="Nombor Kredit Kad" placeholder="1111-2222-3333-4444" required>
-<label for="expdate">Tarikh Luput</label>
-<input type="month" id="expdate" name="Tarikh Luput" required>
-<label for="cvv">CVV</label>
-<input type="text" id="cvv" name="CVV" placeholder="352" required>
+<form action="mailto:joeyyongxin@gmail.com" method="post" enctype="text/plain" onsubmit="confirmInput()">
+<label for="name">Nama</label>
+<input type="text" id="fname" name="nama" placeholder="Nama anda.." required>
+<label for="class">Kelas</label>
+<input type="text" id="class" placeholder="Kelas anda.."name="class" required>
 <label for="money">Jumlah Bayaran</label>
 <input type="text" id="money" name="Jumlah Bayaran" placeholder="RM 10" required>
-</div>
-</div>
-<button type="submit" class="btn" onsubmit="confirmInput()">Teruskan ke pembayaran</button>
+<label for="class">Tarikh Menerima</label>
+<input type="date" id="date" name="Tarikh Menerima" required>
+<button onclick="myFunction()" class="hantar">Hantar</button>
 </form>
 <script>
-function confirmInput() {cname = document.forms[0].cname.value;alert(cname + ", anda telah berjaya membayar.");}
+function confirmInput() {fname = document.forms[0].fname.value;alert(fname + ", mesej anda telah direkodkan.");}
 </script>
 </body>
 </html>

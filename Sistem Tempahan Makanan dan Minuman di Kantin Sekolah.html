@@ -2436,7 +2436,7 @@
       <div id="Borang Tempahan" class="content">
          <br>
          <h1>Borang Tempahan</h1>
-         <p>Sila lengkapkan borang tempahan ini untuk menyelesaikan pesanan anda dan menerima invois anda yang perlu dibayar semasa anda menerima makanan atau minuman anda.</p>
+         <p>Sila lengkapkan borang tempahan ini untuk menyelesaikan tempahan anda dan menerima invois anda yang perlu dibayar semasa anda menerima makanan atau minuman anda.</p>
          <hr>
          <div class="modal-content">
             <div class="modal-header">
@@ -2452,7 +2452,7 @@
                <h5 class="modal-title">Maklumat tempahan</h5>
             </div>
             <div class="modal-body">
-               <form action="mailto:joeyyongxin@gmail.com" method="post" enctype="text/plain" onsubmit="confirmInput()">
+               <form action="mailto:joeyyongxin@gmail.com?subject=Borang Tempahan" method="post" enctype="text/plain" onsubmit="confirmInput()"> 
                   <label for="fullname">Nama penuh</label>
                   <input type="text" id="fullname" name="Nama penuh" placeholder="Nama penuh anda ..." required>
                   <label for="class">Kelas anda</label>
@@ -2466,11 +2466,14 @@
             <div class="modal-body">
             <p>Sila pilih cara bayaran anda dan klik pada ayat berwarna biru yang diberikan di tepi pilihan anda.</p>
             <p>Setelah klik, anda akan diarahkan ke laman web untuk pembayaran dan ia akan dibuka di tab baru. Setelah menyelesaikan proses pembayaran, sila kembali ke laman web untuk meneruskan tempahan anda.</p>
-            <label><input type="radio" value="Bayar secara tunai" name="Cara bayaran" required> Bayar secara tunai - <a href="https://azread.github.io/STEMASK/Bayar%20secara%20tunai.html" target="_blank">Klik jika anda ingin bayar secara tunai</a></label><br>
-            <label><input type="radio" value="Bayar secara kad" name="Cara bayaran" required> Bayar secara kad - <a href="https://azread.github.io/STEMASK/Bayar%20secara%20kad.html" target="_blank">Klik jika anda ingin bayar secara kad</a></label>
-            <p>Catatan: Walaupun anda telah tekan butang radio 'bayar dengan tunai' atau 'bayar dengan kad' tetapi jika anda tidak melengkapkan borang yang diberikan, tempahan anda akan ditandakan tidak wujud.</p></div>
+            <label><input type="radio" value="Bayar secara tunai" name="Cara bayaran" required> Bayar secara tunai - <a href="Bayar secara tunai.html" target="_blank">Klik jika anda ingin bayar secara tunai</a></label><br>
+            <label><input type="radio" value="Bayar secara kad" name="Cara bayaran" required> Bayar secara kad - <a href="Bayar secara kad.html" target="_blank">Klik jika anda ingin bayar secara kad</a></label>
+            <p>Catatan: Walaupun anda telah tekan butang radio 'bayar dengan tunai' atau 'bayar dengan kad' tetapi jika anda tidak melengkapkan borang yang diberikan, tempahan anda akan ditandakan tidak wujud.</p>
+            </div>
             <div class="modal-body">
-            <label><input type="checkbox" "style="margin-bottom:15px" required> Dengan menempah,saya sudah membaca dan bersetuju dengan <a ="Peraturan" style="color:dodgerblue">Peraturan</a>.</label>     </div>
+               <p style="color:red"><b>Perhatian:</b> <i>Anda mestilah memuat naik tangkapan skrin ringkasan anda setelah anda diarahkan ke aplikasi emel apabila anda klik tempah.</i></p>
+               <label><input type="checkbox" "style="margin-bottom:15px" required> Dengan menempah,saya sudah membaca dan bersetuju dengan <a ="Peraturan" style="color:dodgerblue">Peraturan</a>.</label>     
+            </div>
             <div class="modal-footer">
             <button class="clear-cart btn btn-danger">Kosongkan Troli</button> 
             <button type="submit" class="btn btn-primary" onsubmit="confirmInput()">Tempah</button>
@@ -2677,7 +2680,7 @@
       <hr>
       <br>
       <div class="containerb">
-         <form action="mailto:joeyyongxin@gmail.com" method="post" enctype="text/plain">
+         <form action="mailto:joeyyongxin@gmail.com?subject=Borang Hubungan" method="post" enctype="text/plain" method="post" enctype="text/plain">
             <label for="name">Nama</label>
             <input type="text" id="fname" name="Nama" placeholder="Nama anda.." required>
             <label for="email">Emel</label>

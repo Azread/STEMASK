@@ -8,13 +8,7 @@
       <style>
          *{box-sizing: border-box;}
          body {margin: 5;}
-         .row {display: flexbox; display: flex;flex-wrap: wrap; flex-wrap: wrap;margin: 0 -16px;}
-         .col-25 {flex: 25%;flex: 25%;}
-         .col-50 {flex: 50%;flex: 50%;}
-         .col-75 {flex: 75%;flex: 75%;}
-         .col-25,
-         .col-50,
-         .col-75 {padding: 0 16px;}
+         .col-50 {flex: 50%;flex: 50%;padding: 0 16px;}
          .container {background-color: #f2f2f2;padding: 5px 20px 15px 20px;border: 1px solid lightgrey;border-radius: 3px;}
          input[type=text], input[type=month]{width: 100%;margin-bottom: 20px;padding: 12px;border: 1px solid #ccc;border-radius: 3px;}
          label {margin-bottom: 10px;display: block;}
@@ -26,7 +20,7 @@
    <body>
       <h2>Bayar secara kad</h2>
       <p>Sila lengkapkan borang ini untuk menyelesaikan tempahan anda dan menerima invois anda semasa anda menerima makanan atau minuman anda di kantin sekolah.</p>
-      <form action="mailto:joeyyongxin@gmail.com" method="post" enctype="text/plain" onsubmit="confirmInput()">
+      <form action="mailto:joeyyongxin@gmail.com?subject=Cara bayaran: Bayar secara kad" method="post" enctype="text/plain" onsubmit="confirmInput()">
          <div class="container">
             <div class="col-50">
                <h3>Pembayaran</h3>
